@@ -205,7 +205,7 @@ export const startGame = async (lobbyId: string) => {
       const isImpostor = p.id === impostorId;
       updates[`players/${p.id}/isImpostor`] = isImpostor;
       updates[`players/${p.id}/word`] = isImpostor ? "Impostor" : word;
-      updates[`players/${p.id}/hint`] = isImpostor ? "Try to blend in!" : hint;
+      updates[`players/${p.id}/hint`] = hint;
     }
   });
 

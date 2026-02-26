@@ -74,8 +74,9 @@ const FlashcardsPhase = ({ lobby, player, isSpectatingHost, isHost }: any) => {
         onClick={() => setRevealed(!revealed)}
       >
         <motion.div
-          className="w-full h-full relative preserve-3d transition-transform duration-500"
+          className="w-full h-full relative preserve-3d"
           animate={{ rotateY: revealed ? 180 : 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
           {/* Front of card (Hidden) */}
           <div className="absolute inset-0 backface-hidden bg-white rounded-3xl shadow-xl border border-zinc-100 flex flex-col items-center justify-center p-8">
@@ -105,7 +106,7 @@ const FlashcardsPhase = ({ lobby, player, isSpectatingHost, isHost }: any) => {
                 <p className="text-zinc-400 font-medium mb-2">The Word is</p>
                 <h2 className="text-4xl font-bold text-white mb-6">{player.word}</h2>
                 <p className="text-zinc-400 font-medium mb-2">Category</p>
-                <p className="text-xl font-medium text-white">{lobby.category || 'Custom'}</p>
+                <p className="text-xl font-medium text-white">{lobby.mode === 'custom' ? 'Custom' : lobby.category}</p>
               </>
             )}
           </div>

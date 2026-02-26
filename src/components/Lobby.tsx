@@ -177,23 +177,23 @@ export const Lobby = ({ lobby, playerId, onLeave }: { lobby: LobbyData, playerId
         </div>
 
         {isHost ? (
-          <div className="bg-zinc-900 rounded-3xl p-6 shadow-xl text-white flex flex-col justify-between sticky top-6 h-fit">
+          <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-100 flex flex-col justify-between sticky top-6 h-fit">
             <div>
-              <h3 className="text-xl font-bold mb-2">Ready?</h3>
-              <p className="text-zinc-400 text-sm mb-6">
+              <h3 className="text-xl font-bold text-zinc-900 mb-2">Ready?</h3>
+              <p className="text-zinc-500 text-sm mb-6">
                 Make sure everyone is here. {lobby.mode === 'custom' ? "You will sit out." : "You will play."}
               </p>
             </div>
             <button
               onClick={handleStart}
               disabled={(playersList.length < 3 && lobby.mode === 'auto') || (lobby.mode === 'custom' && playersList.length < 4)}
-              className="w-full py-4 bg-white text-zinc-900 hover:bg-zinc-100 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl font-bold flex items-center justify-center gap-2 transition-colors"
+              className="w-full py-4 bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl font-bold flex items-center justify-center gap-2 transition-colors shadow-sm"
             >
               <Play className="w-5 h-5" />
               Start Game
             </button>
             {((playersList.length < 3 && lobby.mode === 'auto') || (lobby.mode === 'custom' && playersList.length < 4)) && (
-              <p className="text-center text-xs text-red-400 mt-3 font-medium">
+              <p className="text-center text-xs text-red-500 mt-3 font-medium">
                 Need at least {lobby.mode === 'custom' ? '4' : '3'} players
               </p>
             )}
